@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "name": "Expert Team",
+      "img": "https://i.ibb.co.com/58NzdPX/group.png",
+      "color": "black",
+      "background":"white"
+    },
+    {
+      "id": 2,
+      "name": "Timely Delivery",
+      "img": "https://i.ibb.co.com/H4FGTDb/Group-38729.png",
+      "color": "white",
+      "background":"#FF3811"
+    },
+    {
+      "id": 3,
+      "name": "24/7 Support",
+      "img": "https://i.ibb.co.com/2jmrDJL/person.png",
+      "color": "black",
+      "background":"white"
+    },
+    {
+      "id": 4,
+      "name": "Best Equipment",
+      "img": "https://i.ibb.co.com/wNnTWmB/Wrench.png",
+      "color": "black",
+      "background":"white"
+    },
+    {
+      "id": 5,
+      "name": "100% Guranty",
+      "img": "https://i.ibb.co.com/WKvf0R5/check.png",
+      "color": "black",
+      "background":"white"
+    }
+    ,
+    { 
+        "id": 6,
+        "name": "Timely Delivery",
+        "img": "https://i.ibb.co.com/GcQtvqL/deliveryt.png",
+        "color": "black",
+        "background":"white"
+      }
+  ]
+
+  
+
+
+
+
