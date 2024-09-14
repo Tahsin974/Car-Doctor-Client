@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo1.svg'
+import { HashLink } from 'react-router-hash-link/dist/react-router-hash-link.cjs.production';
 const NavBar = () => {
   const navItems = <>
   <li>
-      <Link>Home</Link>
+      <Link to='/home'>Home</Link>
   </li>
   <li>
-      <Link>About</Link>
+      <HashLink to='/home#about'>About</HashLink>
   </li>
   <li>
-      <Link>Services</Link>
+      <HashLink to='/home#services'>Services</HashLink>
   </li>
   <li>
       <Link>Blog</Link>
@@ -19,7 +20,7 @@ const NavBar = () => {
   </li>
   </>
   return (
-    <div className="navbar bg-white  mb-4">
+    <div className="navbar bg-white  mb-4 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

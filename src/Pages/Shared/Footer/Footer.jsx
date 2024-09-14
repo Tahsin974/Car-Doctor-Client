@@ -2,7 +2,7 @@ import { FaGoogle, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa6";
 import logo from "../../../assets/logo2.svg";
 const Footer = () => {
   return (
-    <footer className="footer bg-neutral-950 text-neutral-content p-10">
+    <footer className="footer bg-neutral-950 text-neutral-content p-10 min-w-screen">
       <aside>
         <img src={logo} alt="" />
         <p>

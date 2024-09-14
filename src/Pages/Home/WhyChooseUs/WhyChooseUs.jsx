@@ -12,8 +12,8 @@ const WhyChooseUs = () => {
   return (
     <div className="my-32">
       <div className="text-center space-y-3">
-        <h3 className="text-3xl text-red-500 font-bold">Core Features</h3>
-        <h1 className="text-5xl font-bold">Why Choose Us</h1>
+        <h3 className="lg:text-3xl text-2xl text-red-500 font-bold">Core Features</h3>
+        <h1 className="lg:text-5xl text-4xl font-bold">Why Choose Us</h1>
         <p className="capitalize ">
           the majority have suffered alteration in some form, by injected
           humour, or randomised <br /> words which do not look even slightly
