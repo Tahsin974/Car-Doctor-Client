@@ -5,8 +5,39 @@ import useAuthContext from '../../Context/useAuthContext'
 import img from '../../assets/images/login/login.svg'
 
 const SignUp = () => {
-    const [googleSignIn,user] = useAuthContext();
-  console.log(user)
+    const {googleSignIn,createUser,setUser,setUserName} = useAuthContext();
+
+
+    const SignUpWithGoogle = () => {
+      googleSignIn()
+      .then((result) => {
+        setUser(result.user)
+      });
+    }
+
+    const handleSignUp = event => {
+      event.preventDefault()
+      const form = event.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const password = form.password.value;
+
+      createUser(email,password)
+      .then((result) => {
+        // Signed up 
+        setUser(result.user);
+        console.log(result.user)
+        setUserName(name)
+      })
+      .catch((error) => {
+        
+        console.log(error.message);
+        // ..
+      });
+
+      form.reset()
+      
+    }
     return (
         <div className="hero bg-white min-h-screen items-center my-6">
       <div className="hero-content grid lg:grid-cols-2 lg:gap-x-11 gap-y-11">
@@ -14,7 +45,7 @@ const SignUp = () => {
           <img src={img} alt="" />
         </div>
         <div className="card bg-white w-full flex-shrink-0 shadow-2xl border">
-          <form className="card-body">
+          <form onSubmit={handleSignUp} className="card-body">
             <h1 className="text-4xl font-semibold text-center mb-8">Sign Up</h1>
             <div className="form-control">
               <label className="label">
@@ -23,6 +54,7 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder="name"
+                name="name"
                 className="input input-bordered bg-white"
                 required
               />
@@ -34,6 +66,7 @@ const SignUp = () => {
               <input
                 type="email"
                 placeholder="email"
+                name="email"
                 className="input input-bordered bg-white"
                 required
               />
@@ -44,6 +77,7 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
+                name="password"
                 placeholder="password"
                 className="input input-bordered bg-white"
                 required
@@ -53,7 +87,7 @@ const SignUp = () => {
               <button className="btn border-[#FF3811] bg-[#FF3811] hover:bg-[#FF3811] hover:border-[#FF3811] text-white">
               Sign Up
               </button>
-              <div className="divider">Or Sign In with</div>
+              <div className="divider">Or Sign Up with</div>
               <div className="flex justify-center space-x-4 my-5">
           <button className="btn btn-circle text-lg text-[#395185] hover:text-[#395185]">
           <FaFacebookF />
@@ -63,7 +97,7 @@ const SignUp = () => {
 
 
           </button>
-          <button onClick={googleSignIn} className="btn btn-circle text-lg">
+          <button onClick={SignUpWithGoogle} className="btn btn-circle text-lg">
           <FcGoogle />
 
 

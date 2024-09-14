@@ -4,8 +4,35 @@ import { FaFacebookF, FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import useAuthContext from "../../Context/useAuthContext";
 const Login = () => {
-  const [googleSignIn,user] = useAuthContext();
-  console.log(user)
+  const {googleSignIn,userSignIn,setUser} = useAuthContext();
+
+  const loginWithGoogle = () => {
+    googleSignIn()
+    .then((result) => {
+      setUser(result.user)
+    });
+  }
+    const handleLogin = event => {
+      event.preventDefault()
+      const form = event.target;
+     
+      const email = form.email.value;
+      const password = form.password.value;
+      userSignIn(email,password)
+      .then((result) => {
+        // Signed in 
+        const user = result.user;
+        setUser(user)
+        console.log("LogIn",user)
+    
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+
+      form.reset()
+      
+    }
   return (
     <div className="hero bg-white min-h-screen items-center my-6">
       <div className="hero-content grid lg:grid-cols-2 lg:gap-x-11 gap-y-11">
@@ -13,7 +40,7 @@ const Login = () => {
           <img src={img} alt="" />
         </div>
         <div className="card bg-white w-full flex-shrink-0 shadow-2xl border">
-          <form className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <h1 className="text-4xl font-semibold text-center mb-8">Login</h1>
             <div className="form-control">
               <label className="label">
@@ -22,6 +49,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="email"
+                name="email"
                 className="input input-bordered bg-white"
                 required
               />
@@ -33,6 +61,7 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="password"
+                name="password"
                 className="input input-bordered bg-white"
                 required
               />
@@ -51,7 +80,7 @@ const Login = () => {
 
 
           </button>
-          <button onClick={googleSignIn} className="btn btn-circle text-lg">
+          <button onClick={loginWithGoogle} className="btn btn-circle text-lg">
           <FcGoogle />
 
 
@@ -61,7 +90,7 @@ const Login = () => {
             </div>
           </form>
           <div className="flex justify-center mb-5">
-          <p>Have an account? <Link to='/signUp' className="link link-hover text-[#FF3811] font-semibold">Sign In</Link></p>
+          <p>Have an account? <Link to='/signUp' className="link link-hover text-[#FF3811] font-semibold">Sign Up</Link></p>
           </div>
         </div>
       </div>
