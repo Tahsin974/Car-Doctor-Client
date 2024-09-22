@@ -1,3 +1,22 @@
-.carousel-control-prev-icon{
-    background-color: brown !important;
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: 
+ #fff;
+    color: #000;
+    border-radius: 50%; 
+
+    cursor: pointer;
+}
+
+.swiper-button-prev {
+    left: 20px;
+}
+
+.swiper-button-next {
+    right: 20px;
 }

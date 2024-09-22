@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/images/login/login.svg";
 import { FaFacebookF, FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import useAuthContext from "../../Context/useAuthContext";
 const Login = () => {
   const {googleSignIn,userSignIn,setUser} = useAuthContext();
-
+  const navigate = useNavigate();
+  const location = useLocation();
   const loginWithGoogle = () => {
+    
     googleSignIn()
     .then((result) => {
       setUser(result.user)
+      navigate(location.state ? location.state :'/home')
     });
   }
     const handleLogin = event => {
@@ -24,6 +27,7 @@ const Login = () => {
         const user = result.user;
         setUser(user)
         console.log("LogIn",user)
+        navigate(location.state ? location.state :'/home')
     
       })
       .catch((error) => {

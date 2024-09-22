@@ -10,6 +10,7 @@ import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 const Home = () => {
     return (
         <div>
+         
           <Banner></Banner> 
           <About></About>
           <Services></Services>
